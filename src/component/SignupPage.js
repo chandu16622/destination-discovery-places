@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import signupBg from "../images/login-bg.jpg"; 
-import logo from "../images/logo.png";// ✅ background image
+
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -61,16 +60,21 @@ const SignupForm = () => {
     }
   };
 
+  const handleSignIn = () => {
+    navigate("/home");
+  };
+
   return (
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: `url(${signupBg})`,
+            background:
+            "url('https://depositphotos-blog.s3.eu-west-1.amazonaws.com/uploads/2017/07/Soothing-nature-backgrounds-2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* ✅ Navbar Section */}
+      {/* Navbar Section */}
       <Navbar
         expand="lg"
         style={{
@@ -86,26 +90,10 @@ const SignupForm = () => {
               fontSize: "1.5rem",
             }}
           >
-            <img
-              src={logo}
-              alt="Destination Discoveries"
-              style={{ height: "80px", marginRight: "140px" }}
-            />
+            Destination Discoveries
           </Navbar.Brand>
           <Nav className="ms-auto">
-            <Nav.Link
-              style={{ color: "#1714dfff", fontWeight: "800" }}
-              onClick={() => navigate("/")}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              style={{ color: "#1429ebff", fontWeight: "800" }}
-              onClick={() => navigate("/contact")}
-            >
-              Contact
-            </Nav.Link>
-             <Button
+            <Button
               variant="danger"
               style={{
                 marginLeft: "10px",
@@ -114,10 +102,11 @@ const SignupForm = () => {
                 backgroundColor: "#4f19e2ff",
                 border: "none",
               }}
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/contact")}
             >
-              login
+              Contact
             </Button>
+
             <Button
               variant="danger"
               style={{
@@ -135,7 +124,7 @@ const SignupForm = () => {
         </Container>
       </Navbar>
 
-      {/* ✅ Signup Section */}
+      {/* Signup Section */}
       <div
         style={{
           height: "calc(100vh - 90px)",
@@ -147,40 +136,99 @@ const SignupForm = () => {
         {isSubmitted && Object.keys(errors).length === 0 ? (
           <div
             style={{
-              background: "rgba(255, 255, 255, 0.9)",
-              padding: "30px",
-              borderRadius: "10px",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-              fontSize: "1.2rem",
-              fontWeight: "600",
+              background: "rgba(255, 255, 255, 0.95)",
+              padding: "40px",
+              borderRadius: "15px",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+              textAlign: "center",
+              width: "400px",
             }}
           >
-            ✅ Success! Account created.
+            <div
+              style={{
+                fontSize: "3rem",
+                marginBottom: "20px",
+              }}
+            >
+              ✅
+            </div>
+            <h2
+              style={{
+                color: "#28a745",
+                fontWeight: "700",
+                marginBottom: "15px",
+              }}
+            >
+              Registration Successful!
+            </h2>
+            <p
+              style={{
+                color: "#666",
+                fontSize: "1rem",
+                marginBottom: "25px",
+              }}
+            >
+              Your account has been created successfully.
+            </p>
+            <Button
+              onClick={handleSignIn}
+              style={{
+                width: "100%",
+                padding: "12px",
+              
+                color: "white",
+                fontSize: "1.1rem",
+                fontWeight: "600",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = "#5a32c7";
+                e.target.style.transform = "scale(1.02)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "#6e40ec";
+                e.target.style.transform = "scale(1)";
+              }}
+            >
+              Sign In
+            </Button>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
             style={{
-              background: "rgba(255, 255, 255, 0.9)",
+              background: "rgba(255, 255, 255, 0.95)",
               padding: "40px",
               borderRadius: "15px",
               boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-              width: "350px",
+              width: "400px",
             }}
           >
             <h2
               style={{
                 textAlign: "center",
-                marginBottom: "20px",
+                marginBottom: "30px",
                 color: "#333",
                 fontWeight: "700",
               }}
             >
-              Sign Up
+              Create Account
             </h2>
 
-            <div style={{ marginBottom: "15px" }}>
-              <label>Email</label>
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  marginBottom: "8px",
+                  color: "#555",
+                  fontWeight: "500",
+                }}
+              >
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -189,20 +237,33 @@ const SignupForm = () => {
                 placeholder="Enter your email"
                 style={{
                   width: "100%",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ddd",
+                  fontSize: "1rem",
+                  transition: "border 0.3s ease",
                 }}
+                onFocus={(e) => (e.target.style.borderColor = "#6e40ec")}
+                onBlur={(e) => (e.target.style.borderColor = "#ddd")}
               />
               {errors.email && (
-                <p style={{ color: "red", fontSize: "0.9rem" }}>
+                <p style={{ color: "#dc3545", fontSize: "0.9rem", marginTop: "5px" }}>
                   {errors.email}
                 </p>
               )}
             </div>
 
-            <div style={{ marginBottom: "15px" }}>
-              <label>Password</label>
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  marginBottom: "8px",
+                  color: "#555",
+                  fontWeight: "500",
+                }}
+              >
+                Password
+              </label>
               <input
                 type="password"
                 name="password"
@@ -211,20 +272,33 @@ const SignupForm = () => {
                 placeholder="Enter your password"
                 style={{
                   width: "100%",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ddd",
+                  fontSize: "1rem",
+                  transition: "border 0.3s ease",
                 }}
+                onFocus={(e) => (e.target.style.borderColor = "#6e40ec")}
+                onBlur={(e) => (e.target.style.borderColor = "#ddd")}
               />
               {errors.password && (
-                <p style={{ color: "red", fontSize: "0.9rem" }}>
+                <p style={{ color: "#dc3545", fontSize: "0.9rem", marginTop: "5px" }}>
                   {errors.password}
                 </p>
               )}
             </div>
 
-            <div style={{ marginBottom: "20px" }}>
-              <label>Confirm Password</label>
+            <div style={{ marginBottom: "25px" }}>
+              <label
+                style={{
+                  display: "block",
+                  marginBottom: "8px",
+                  color: "#555",
+                  fontWeight: "500",
+                }}
+              >
+                Confirm Password
+              </label>
               <input
                 type="password"
                 name="confirmPassword"
@@ -233,13 +307,17 @@ const SignupForm = () => {
                 placeholder="Confirm your password"
                 style={{
                   width: "100%",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ddd",
+                  fontSize: "1rem",
+                  transition: "border 0.3s ease",
                 }}
+                onFocus={(e) => (e.target.style.borderColor = "#6e40ec")}
+                onBlur={(e) => (e.target.style.borderColor = "#ddd")}
               />
               {errors.confirmPassword && (
-                <p style={{ color: "red", fontSize: "0.9rem" }}>
+                <p style={{ color: "#dc3545", fontSize: "0.9rem", marginTop: "5px" }}>
                   {errors.confirmPassword}
                 </p>
               )}
@@ -249,13 +327,23 @@ const SignupForm = () => {
               type="submit"
               style={{
                 width: "100%",
-                padding: "10px",
+                padding: "12px",
                 backgroundColor: "#6e40ec",
                 color: "white",
-                fontSize: "1rem",
+                fontSize: "1.1rem",
+                fontWeight: "600",
                 border: "none",
                 borderRadius: "8px",
                 cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = "#5a32c7";
+                e.target.style.transform = "scale(1.02)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "#6e40ec";
+                e.target.style.transform = "scale(1)";
               }}
             >
               Register

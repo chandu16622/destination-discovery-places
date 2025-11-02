@@ -81,7 +81,7 @@ function Contact() {
             <Nav className="ms-auto d-flex align-items-center">
 
               {/* 🏠 Home */}
-              <Nav.Link
+              {/* <Nav.Link
                 onClick={() => navigate("/")}
                 style={{
                   ...getNavLinkStyle("home"),
@@ -92,25 +92,25 @@ function Contact() {
                 onMouseLeave={() => setHoveredLink(null)}
               >
                 Home
-              </Nav.Link>
+              </Nav.Link> */}
 
 
-              {/* ✉️ Contact */}
-              <Nav.Link
-                onClick={() => navigate("/")}
-                style={{
-                  ...getNavLinkStyle("logout"),
-                  fontSize: "1.2rem",
-                  padding: "10px 20px",
-                }}
-                onMouseEnter={() => setHoveredLink("logout")}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                logout
-              </Nav.Link>
 
               {/* 🔐 Auth Buttons */}
               <div className="d-none d-lg-flex align-items-left ml me-auto">
+                   <Button
+                  style={{
+                    backgroundColor: "#6e40ecff",
+                    border: "none",
+                    fontSize: "1.1rem",
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                  }}
+                  className="ms-3"
+                  onClick={() => navigate("/")}
+                >
+                  home
+                </Button>
                 <Button
                   style={{
                     backgroundColor: "#6e40ecff",

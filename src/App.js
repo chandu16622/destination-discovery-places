@@ -15,6 +15,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        
         <Route path="/" element={<LandingPage />} />
          <Route path="/Home" element={<HomePage />} />
         <Route path="/city/:id" element={<CityDetails />} />
