@@ -180,7 +180,7 @@ function LandingPage() {
                   fontSize: "1.1rem",
                   padding: "10px 20px",
                   borderRadius: "10px",
-                  marginRight: "10px",
+                  marginRight: "30px",
                 }}
                 onClick={() => navigate("/login")}
               >
