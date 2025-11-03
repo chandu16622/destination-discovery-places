@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { Container, Row, Col, Card, Button, Navbar, Nav } from "react-bootstrap";
-import  logo from "../images/logo.png";
+import logo from "../images/logo.png";
 
 // import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import tirupathi from "../images/tirupathi.jpg";
@@ -80,6 +80,7 @@ import PushpagiriTemple from "../images/PushpagiriTemple.jpg";
 import SiddhavattamTemple from "../images/SiddhavattamTemple.jpg";
 import RayalaseemaBarrage from "../images/RayalaseemaBarrage.jpg";
 import KailasanathaSwamyTemple from "../images/KailasanathaSwamyTemple.jpg";
+import Modal from 'react-bootstrap/Modal';
 
 import "../App.css";
 function CityDetails() {
@@ -88,7 +89,7 @@ function CityDetails() {
   const [hoveredLink, setHoveredLink] = useState(null);
   const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
-  const [showScrollButton, setShowScrollButton] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false); 
 
   // Handle scroll inside modal
   const handleModalScroll = (e) => {
@@ -130,6 +131,7 @@ function CityDetails() {
   };
 
   const cityData = [
+    
     {
       id: 1,
       name: "Visakhapatnam",
@@ -556,7 +558,7 @@ function CityDetails() {
         },
         {
           name: "Rayalaseema Barrage",
-          desc: "The Rayalaseema Barrage, located near Kadapa in Andhra Pradesh, is an impressive irrigation and water conservation structure built across the Penna River. This modern engineering marvel was developed to improve water management in the drought-prone regions of Rayalaseema, which historically suffered from water scarcity. The barrage plays a vital role in ensuring that the surrounding agricultural lands receive a steady and reliable supply of water, helping thousands of farmers cultivate crops even during dry seasons.Popular local picnic spot.Rayalaseema Barrage, built across the majestic River Godavari, stands as a significant engineering marvel that supports irrigation and water supply across the region. Surrounded by scenic river views and peaceful natural landscapes, the barrage has become an inviting spot for visitors who enjoy leisurely walks and relaxing time by the water. During the evenings, the pleasant ambiance with cool breezes and the sight of flowing river water creates a perfect place to unwind with family and friends. The location also gives a glimpse of the region’s agricultural importance, showing how the barrage plays a key role in nurturing fertile lands and sustaining livelihoods",
+          desc: "The Rayalaseema Barrage, located near Kadapa in Andhra Pradesh, is an impressive irrigation and water conservation structure built across the Penna River. This modern engineering marvel was developed to improve water management in the drought-prone regions of Rayalaseema, which historically suffered from water scarcity. The barrage plays a vital role in ensuring that the surrounding agricultural lands receive a steady and reliable supply of water, helping thousands of farmers cultivate crops even during dry seasons.Popular local picnic spot.Rayalaseema Barrage, built across the majestic River Godavari, stands as a significant engineering marvel that supports irrigation and water supply across the region. Surrounded by scenic river views and peaceful natural landscapes, the barrage has become an inviting spot for visitors who enjoy leisurely walks and relaxing time by the water. During the evenings, the pleasant ambiance with cool breezes and the sight of flowing river water creates a perfect place to unwind with family and friends. The location also gives a glimpse of the region’s agricultural importance, ",
           map: "https://www.google.com/maps?q=Rayalaseema+Barrage",
           img: RayalaseemaBarrage,
         },
@@ -570,7 +572,8 @@ function CityDetails() {
     },
   ]
 
-   const city = cityData.find((c) => c.id === parseInt(id));
+  const city = cityData.find((c) => c.id === parseInt(id));
+  
 
   if (!city) {
     return (
@@ -668,7 +671,7 @@ function CityDetails() {
       </Navbar>
 
       <Container style={{ position: "relative", zIndex: 2, paddingTop: "100px", paddingBottom: "50px" }}>
- 
+
         {/* City Title and Scroll Button */}
         <div className="text-center mb-5">
           <h2 className="mb-4 text-white fw-bold display-4">{city.name}</h2>
@@ -693,7 +696,7 @@ function CityDetails() {
               e.currentTarget.style.boxShadow = "0 8px 20px rgba(110, 64, 236, 0.4)";
             }}
           >
-            📍 View Places to Visit
+           View Places to Visit
           </Button>
         </div>
 
@@ -770,7 +773,7 @@ function CityDetails() {
                         zIndex: 1,
                       }}
                     >
-                      {place.name.toLowerCase().includes("beach") ? "🏖️" :
+                      {/* {place.name.toLowerCase().includes("beach") ? "🏖️" :
                         place.name.toLowerCase().includes("temple") ? "🛕" :
                           place.name.toLowerCase().includes("fort") ? "🏰" :
                             place.name.toLowerCase().includes("waterfall") || place.name.toLowerCase().includes("falls") ? "💧" :
@@ -778,17 +781,19 @@ function CityDetails() {
                                 place.name.toLowerCase().includes("park") || place.name.toLowerCase().includes("garden") ? "🌳" :
                                   place.name.toLowerCase().includes("hill") ? "⛰️" :
                                     place.name.toLowerCase().includes("cave") ? "🕳️" :
-                                      "📍"}
+                                      "📍"} */}
                     </div>
                   </div>
 
                   <Card.Body className="bg-white">
-                    <Card.Text className="text-muted mb-3" style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden"
-                    }}>
+                    <Card.Text
+                      className="text-muted text-start"
+                      style={{
+                        height: "230px",
+                        overflowY: "scroll", // <--- CHANGE THIS
+                        textAlign: "justify",
+                      }}
+                    >
                       {place.desc}
                     </Card.Text>
 
@@ -923,13 +928,13 @@ function CityDetails() {
 
             <Card.Body className="bg-white p-4">
               <h5 className="mb-3 fw-bold">About this place</h5>
-              <Card.Text className="text-muted mb-4" style={{ 
-                lineHeight: "1.8", 
-                fontSize: "1.1rem" 
+              <Card.Text className="text-muted mb-4" style={{
+                lineHeight: "1.8",
+                fontSize: "1.1rem"
               }}>
                 {selectedPlace.desc}
               </Card.Text>
-              
+
               <Button
                 variant="success"
                 size="lg"
@@ -952,7 +957,7 @@ function CityDetails() {
         </div>
       )}
 
-      <style>
+      {/* <style>
         {`
           @keyframes popupScale {
             from {
@@ -965,7 +970,7 @@ function CityDetails() {
             }
           }
         `}
-      </style>
+      </style> */}
     </div>
   );
 }

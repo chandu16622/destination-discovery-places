@@ -56,102 +56,89 @@ function Contact() {
       <Navbar
         style={{
           backgroundColor: "white",
-          minHeight: "20px",
-          top: -10,
+          minHeight: "50px",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
         }}
         expand="lg"
         sticky="top"
       >
         <Container>
+          {/* ✅ Logo */}
           <Navbar.Brand
             onClick={() => navigate("/")}
-            className="fw-bold"
+            className="fw-bold d-flex align-items-center"
             style={{
               fontSize: "1.8rem",
               color: "#2b2b2b",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
-            <img src={logo} alt="Destination Discoveries" className="logo" 
-            style={{ height: "70px" }}/>
+            <img src={logo} alt="Destination Discoveries" style={{ height: "80px", marginRight: "90px" }} />
           </Navbar.Brand>
 
+          {/* ✅ Toggle for Mobile */}
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="ms-auto d-flex align-items-center">
-
-              {/* 🏠 Home */}
-              {/* <Nav.Link
-                onClick={() => navigate("/")}
+            {/* ✅ Navigation Buttons (Work properly in collapse now) */}
+            <Nav className="ms-auto d-flex flex-column flex-lg-row align-items-lg-center gap-2 gap-lg-3">
+              <Button
                 style={{
-                  ...getNavLinkStyle("home"),
-                  fontSize: "1.2rem",
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
                   padding: "10px 20px",
+                  borderRadius: "10px",
                 }}
-                onMouseEnter={() => setHoveredLink("home")}
-                onMouseLeave={() => setHoveredLink(null)}
+                onClick={() => navigate("/")}
               >
                 Home
-              </Nav.Link> */}
+              </Button>
 
+              <Button
+                style={{
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                }}
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </Button>
 
-
-              {/* 🔐 Auth Buttons */}
-              <div className="d-none d-lg-flex align-items-left ml me-auto">
-                   <Button
-                  style={{
-                    backgroundColor: "#6e40ecff",
-                    border: "none",
-                    fontSize: "1.1rem",
-                    padding: "10px 20px",
-                    borderRadius: "10px",
-                  }}
-                  className="ms-3"
-                  onClick={() => navigate("/")}
-                >
-                  home
-                </Button>
-                <Button
-                  style={{
-                    backgroundColor: "#6e40ecff",
-                    border: "none",
-                    fontSize: "1.1rem",
-                    padding: "10px 20px",
-                    borderRadius: "10px",
-                  }}
-                  className="ms-3"
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </Button>
-
-                <Button
-                  style={{
-                    backgroundColor: "#6e40ecff",
-                    border: "none",
-                    fontSize: "1.1rem",
-                    padding: "10px 20px",
-                    borderRadius: "10px",
-                  }}
-                  className="ms-3"
-                  onClick={() => navigate("/signup")}
-                >
-                  Signup
-                </Button>
-              </div>
+              <Button
+                style={{
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                }}
+                onClick={() => navigate("/signup")}
+              >
+                Signup
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
+
       {/* Contact Page Content */}
+
       <div
         style={{
           minHeight: "100vh",
           background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          padding: "50px 0"
+          padding: "120px 0 50px", // 👈 added top padding to clear navbar
         }}
       >
+
         <Container>
           {/* Header */}
           <div className="text-center mb-8">
@@ -510,7 +497,7 @@ function Contact() {
         </Container>
       </div>
 
-     
+
     </>
   );
 }

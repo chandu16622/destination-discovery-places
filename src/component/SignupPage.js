@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../images/logo.png";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -68,8 +68,8 @@ const SignupForm = () => {
     <div
       style={{
         minHeight: "100vh",
-            background:
-            "url('https://depositphotos-blog.s3.eu-west-1.amazonaws.com/uploads/2017/07/Soothing-nature-backgrounds-2.jpg')",
+        background:
+          "url('https://depositphotos-blog.s3.eu-west-1.amazonaws.com/uploads/2017/07/Soothing-nature-backgrounds-2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -88,11 +88,18 @@ const SignupForm = () => {
               fontWeight: "bold",
               color: "#6e40ec",
               fontSize: "1.5rem",
+
             }}
           >
-            Destination Discoveries
+            <img src={logo} alt="Destination Discoveries" style={{ height: "90px" }} />
           </Navbar.Brand>
-          <Nav className="ms-auto">
+
+          <Nav
+            className="ms-auto d-flex align-items-center"
+            style={{
+              gap: "20px", // 🟣 Adds spacing between buttons
+            }}
+          >
             <Button
               variant="danger"
               style={{
@@ -175,7 +182,7 @@ const SignupForm = () => {
               style={{
                 width: "100%",
                 padding: "12px",
-              
+
                 color: "white",
                 fontSize: "1.1rem",
                 fontWeight: "600",

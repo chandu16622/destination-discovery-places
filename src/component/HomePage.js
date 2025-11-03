@@ -152,7 +152,8 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
       <Navbar
         style={{
           backgroundColor: "white",
-          minHeight: "90px",
+          minHeight: "60px",
+           padding: "5px 0", 
         }}
         expand="lg"
         sticky="top"
@@ -166,7 +167,7 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
               color: "#2b2b2b",
             }}
           >
-           <img src={logo} alt="Destination Discoveries" className="logo" />
+           <img src={logo} alt="Destination Discoveries" className="logo" style={{ height: "80px", marginRight: "90px" }} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

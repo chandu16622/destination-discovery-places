@@ -32,7 +32,7 @@ function LoginPage() {
     <div
       style={{
         height: "100vh",
-        overflow: "hidden", // ✅ removes scroll
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
       }}
@@ -55,8 +55,8 @@ function LoginPage() {
               color: "#2b2b2b",
             }}
           >
-            <img src={logo} alt="Destination Discoveries" className="logo" 
-            style={{ height: "70px", marginRight: "90px" }}/>
+            <img src={logo} alt="Destination Discoveries" className="logo"
+              style={{ height: "70px", marginRight: "90px" }} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -115,7 +115,8 @@ function LoginPage() {
           backgroundPosition: "center",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "flex-start", // <-- FIX: Aligns content to the top
+          paddingTop: "50px", // <-- Added padding for space below navbar
         }}
       >
         <Card

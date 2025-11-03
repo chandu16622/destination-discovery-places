@@ -9,11 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SignupPage from "./component/SignupPage";
 import Footer from './component/Footer';
 import './App.css';
-
+import ScrollToTop from './component/ScrollToTop';
 
 function App() {
   return (
     <Router>
+         <ScrollToTop />
       <Routes>
         
         <Route path="/" element={<LandingPage />} />
