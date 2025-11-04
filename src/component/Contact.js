@@ -126,7 +126,11 @@ function Contact() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar>//
+      <a href="/contact">Contact</a>  // for internal navigation
+      <a href="mailto:hello@example.com">Email us</a> // for email
+      <a href="tel:+911234567890">Call us</a> // for phone
+
 
 
       {/* Contact Page Content */}

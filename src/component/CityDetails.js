@@ -80,7 +80,7 @@ import PushpagiriTemple from "../images/PushpagiriTemple.jpg";
 import SiddhavattamTemple from "../images/SiddhavattamTemple.jpg";
 import RayalaseemaBarrage from "../images/RayalaseemaBarrage.jpg";
 import KailasanathaSwamyTemple from "../images/KailasanathaSwamyTemple.jpg";
-import Modal from 'react-bootstrap/Modal';
+
 
 import "../App.css";
 function CityDetails() {
@@ -92,21 +92,6 @@ function CityDetails() {
   const [showScrollButton, setShowScrollButton] = useState(false); 
 
   // Handle scroll inside modal
-  const handleModalScroll = (e) => {
-    if (e.target.scrollTop > 100) {
-      setShowScrollButton(true);
-    } else {
-      setShowScrollButton(false);
-    }
-  };
-
-  // Scroll to top of modal
-  const scrollModalToTop = () => {
-    const modalCard = document.getElementById("modal-card");
-    if (modalCard) {
-      modalCard.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
 
   // Scroll to places section
   const scrollToPlaces = () => {

@@ -11,7 +11,7 @@ import godavari from "../images/godavari.jpg";
 import vijayanagaram from "../images/vijayanagaram.jpg";
 import kadapa from "../images/kadapa.jpg";
 import logo from "../images/logo.png";
-import { HashLink } from "react-router-hash-link";
+
 
 
 function LandingPage() {
