@@ -89,7 +89,7 @@ function CityDetails() {
   const [hoveredLink, setHoveredLink] = useState(null);
   const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
-  const [showScrollButton, setShowScrollButton] = useState(false); 
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   // Handle scroll inside modal
 
@@ -116,7 +116,7 @@ function CityDetails() {
   };
 
   const cityData = [
-    
+
     {
       id: 1,
       name: "Visakhapatnam",
@@ -558,7 +558,7 @@ function CityDetails() {
   ]
 
   const city = cityData.find((c) => c.id === parseInt(id));
-  
+
 
   if (!city) {
     return (
@@ -681,7 +681,7 @@ function CityDetails() {
               e.currentTarget.style.boxShadow = "0 8px 20px rgba(110, 64, 236, 0.4)";
             }}
           >
-           View Places to Visit
+            View Places to Visit
           </Button>
         </div>
 
@@ -758,15 +758,15 @@ function CityDetails() {
                         zIndex: 1,
                       }}
                     >
-                      {/* {place.name.toLowerCase().includes("beach") ? "🏖️" :
-                        place.name.toLowerCase().includes("temple") ? "🛕" :
-                          place.name.toLowerCase().includes("fort") ? "🏰" :
-                            place.name.toLowerCase().includes("waterfall") || place.name.toLowerCase().includes("falls") ? "💧" :
-                              place.name.toLowerCase().includes("museum") ? "🏛️" :
-                                place.name.toLowerCase().includes("park") || place.name.toLowerCase().includes("garden") ? "🌳" :
-                                  place.name.toLowerCase().includes("hill") ? "⛰️" :
-                                    place.name.toLowerCase().includes("cave") ? "🕳️" :
-                                      "📍"} */}
+                      {place.name.toLowerCase().includes("beach") ?"" :
+                        place.name.toLowerCase().includes("temple") ? "" :
+                          place.name.toLowerCase().includes("fort") ? "" :
+                            place.name.toLowerCase().includes("waterfall") || place.name.toLowerCase().includes("falls") ? "" :
+                              place.name.toLowerCase().includes("museum") ? "" :
+                                place.name.toLowerCase().includes("park") || place.name.toLowerCase().includes("garden") ? "" :
+                                  place.name.toLowerCase().includes("hill") ? "" :
+                                    place.name.toLowerCase().includes("cave") ? "" :
+                                      ""}
                     </div>
                   </div>
 
@@ -813,6 +813,9 @@ function CityDetails() {
             justifyContent: "center",
             alignItems: "center",
             padding: "20px",
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+
           }}
           onClick={handleCloseModal}
         >
@@ -823,11 +826,15 @@ function CityDetails() {
               width: "100%",
               maxHeight: "90vh",
               overflowY: "auto",
+              WebkitOverflowScrolling: "touch", // ✅ allows smooth scroll on iOS
+              overscrollBehavior: "contain",    // ✅ prevents background from moving
               transform: "scale(1)",
-              animation: "popupScale 0.3s ease-out"
+              animation: "popupScale 0.3s ease-out",
+              scrollBehavior: "smooth"
             }}
             onClick={(e) => e.stopPropagation()}
           >
+
             {/* Close Button */}
             <button
               onClick={handleCloseModal}
@@ -899,15 +906,15 @@ function CityDetails() {
                   zIndex: 1,
                 }}
               >
-                {selectedPlace.name.toLowerCase().includes("beach") ? "🏖️" :
-                  selectedPlace.name.toLowerCase().includes("temple") ? "🛕" :
-                    selectedPlace.name.toLowerCase().includes("fort") ? "🏰" :
-                      selectedPlace.name.toLowerCase().includes("waterfall") || selectedPlace.name.toLowerCase().includes("falls") ? "💧" :
-                        selectedPlace.name.toLowerCase().includes("museum") ? "🏛️" :
-                          selectedPlace.name.toLowerCase().includes("park") || selectedPlace.name.toLowerCase().includes("garden") ? "🌳" :
-                            selectedPlace.name.toLowerCase().includes("hill") ? "⛰️" :
-                              selectedPlace.name.toLowerCase().includes("cave") ? "🕳️" :
-                                "📍"}
+                {selectedPlace.name.toLowerCase().includes("beach") ? "" :
+                  selectedPlace.name.toLowerCase().includes("temple") ? "" :
+                    selectedPlace.name.toLowerCase().includes("fort") ? "" :
+                      selectedPlace.name.toLowerCase().includes("waterfall") || selectedPlace.name.toLowerCase().includes("falls") ? "" :
+                        selectedPlace.name.toLowerCase().includes("museum") ? "" :
+                          selectedPlace.name.toLowerCase().includes("park") || selectedPlace.name.toLowerCase().includes("garden") ? "" :
+                            selectedPlace.name.toLowerCase().includes("hill") ? "" :
+                              selectedPlace.name.toLowerCase().includes("cave") ? "" :
+                                ""}
               </div>
             </div>
 
@@ -935,14 +942,14 @@ function CityDetails() {
                   e.currentTarget.style.transform = "scale(1)";
                 }}
               >
-                📍 View on Google Maps
+                 View on Google Maps
               </Button>
             </Card.Body>
           </Card>
         </div>
       )}
 
-      {/* <style>
+      <style>
         {`
           @keyframes popupScale {
             from {
@@ -955,7 +962,7 @@ function CityDetails() {
             }
           }
         `}
-      </style> */}
+      </style>
     </div>
   );
 }
