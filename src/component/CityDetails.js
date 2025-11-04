@@ -86,7 +86,7 @@ import "../App.css";
 function CityDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [hoveredLink, setHoveredLink] = useState(null);
+ 
   const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
