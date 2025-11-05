@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Footer() {
+ function Footer() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -215,7 +215,7 @@ export default function Footer() {
                 <p style={{ marginBottom: "12px", fontSize: "0.9rem" }}>Follow Us:</p>
                 <div style={{ display: "flex", gap: "15px" }}>
                   <a 
-                    href="#" 
+                    href="#!" 
                     style={{ 
                       fontSize: "28px", 
                       transition: "transform 0.3s ease",
@@ -227,7 +227,7 @@ export default function Footer() {
                     📘
                   </a>
                   <a 
-                    href="#" 
+                    href="#!" 
                     style={{ 
                       fontSize: "28px", 
                       transition: "transform 0.3s ease",
@@ -239,7 +239,7 @@ export default function Footer() {
                     🐦
                   </a>
                   <a 
-                    href="#" 
+                    href="#!" 
                     style={{ 
                       fontSize: "28px", 
                       transition: "transform 0.3s ease",
@@ -251,7 +251,7 @@ export default function Footer() {
                     📷
                   </a>
                   <a 
-                    href="#" 
+                    href="#!" 
                     style={{ 
                       fontSize: "28px", 
                       transition: "transform 0.3s ease",
@@ -295,7 +295,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
               <a 
-                href="#" 
+                href="#!" 
                 style={{ color: "#050505ff", textDecoration: "none", fontSize: "0.9rem" }}
                 onMouseOver={(e) => e.target.style.color = "#4c00fcff"}
                 onMouseOut={(e) => e.target.style.color = "#000000ff"}
@@ -304,7 +304,7 @@ export default function Footer() {
               </a>
               <span style={{ color: "#000000ff" }}>|</span>
               <a 
-                href="#" 
+                href="#!" 
                 style={{ color: "#000000ff", textDecoration: "none", fontSize: "0.9rem" }}
                 onMouseOver={(e) => e.target.style.color = "#7b43ff"}
                 onMouseOut={(e) => e.target.style.color = "#000000ff"}
@@ -313,7 +313,7 @@ export default function Footer() {
               </a>
               <span style={{ color: "#000000ff" }}>|</span>
               <a 
-                href="#" 
+                href="#!" 
                 style={{ color: "#000000ff", textDecoration: "none", fontSize: "0.9rem" }}
                 onMouseOver={(e) => e.target.style.color = "#7b43ff"}
                 onMouseOut={(e) => e.target.style.color = "#000000ff"}
@@ -327,3 +327,4 @@ export default function Footer() {
     </footer>
   );
 }
+export default Footer;
