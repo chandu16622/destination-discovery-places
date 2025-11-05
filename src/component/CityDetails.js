@@ -83,22 +83,21 @@ import KailasanathaSwamyTemple from "../images/KailasanathaSwamyTemple.jpg";
 
 
 import "../App.css";
-function CityDetails() {
+
+ function CityDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
- 
+
   const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  // Handle scroll inside modal
 
   // Scroll to places section
   const scrollToPlaces = () => {
     const placesSection = document.getElementById("places-section");
     if (placesSection) {
       const yOffset = -80; // Adjust for navbar height
-      const y = placesSection.getBoundingClientRect().top + window.scrollY + yOffset;
+      const y =
+        placesSection.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
@@ -106,14 +105,13 @@ function CityDetails() {
   const handleShowModal = (place) => {
     setSelectedPlace(place);
     setShowModal(true);
-    setShowScrollButton(false);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedPlace(null);
-    setShowScrollButton(false);
   };
+
 
   const cityData = [
 
